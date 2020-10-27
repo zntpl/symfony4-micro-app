@@ -31,9 +31,9 @@
 return [
     'Development' => [
         'path' => 'dev',
-        /*'setWritable' => [
-
-        ],*/
+        'setWritable' => [
+            'var'
+        ],
         'setExecutable' => [
             'bin'
         ],
