@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b02bf91557ccf35f20193bdc4fd14502",
+    "content-hash": "6a362dc9bae4a176af5b24c2d0694f5b",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -2255,6 +2255,39 @@
                 }
             ],
             "time": "2020-09-27T10:55:43+00:00"
+        },
+        {
+            "name": "znlib/console",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/znlib/console.git",
+                "reference": "bd4237e819de9a28322f542537d930a7a190ab26"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/znlib/console/zipball/bd4237e819de9a28322f542537d930a7a190ab26",
+                "reference": "bd4237e819de9a28322f542537d930a7a190ab26",
+                "shasum": ""
+            },
+            "type": "extension",
+            "autoload": {
+                "psr-4": {
+                    "ZnLib\\Console\\": "src",
+                    "ZnLib\\Console\\Tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yamshikov Vitaliy",
+                    "email": "theyamshikov@yandex.ru"
+                }
+            ],
+            "time": "2020-10-16T10:38:06+00:00"
         },
         {
             "name": "znlib/db",
@@ -6229,6 +6262,7 @@
     "stability-flags": {
         "zncore/domain": 20,
         "zncrypt/jwt": 20,
+        "znlib/console": 20,
         "znlib/db": 20,
         "znlib/fixture": 20,
         "znlib/migration": 20,

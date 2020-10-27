@@ -10,6 +10,7 @@
         "ext-json": "*",
         "zncore/domain": "dev-master",
         "zncrypt/jwt": "dev-master",
+        "znlib/console": "dev-master",
         "znlib/db": "dev-master",
         "znlib/fixture": "dev-master",
         "znlib/migration": "dev-master",
