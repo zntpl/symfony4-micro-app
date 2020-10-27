@@ -5,6 +5,9 @@ namespace App\Bus\Domain\Services;
 use App\Bus\Domain\Entities\HandlerEntity;
 use App\Bus\Domain\Repositories\Conf\ProcedureConfigRepository;
 use Illuminate\Container\Container;
+use ZnCore\Base\Exceptions\NotFoundException;
+use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
+use ZnCore\Domain\Helpers\ValidationHelper;
 
 class ProcedureService
 {
@@ -23,14 +26,44 @@ class ProcedureService
 
     public function run(string $procedureName, array $params)
     {
-        $handler = $this->procedureConfigRepository->getHandlerByName($procedureName);
-        //$handler = $this->getHandler($procedureName);
-        return $this->runProcedure($handler, $params);
+        try {
+            $handler = $this->procedureConfigRepository->getHandlerByName($procedureName);
+            $result = $this->runProcedure($handler, $params);
+        } catch (UnprocessibleEntityException $e) {
+            $result = [
+                'error' => 'UnprocessibleEntityException',
+                'code' => $e->getCode(),
+                'message' => ValidationHelper::collectionToArray($e->getErrorCollection()),
+            ];
+        } catch (\Exception $e) {
+            $result = [
+                'error' => basename(get_class($e)),
+                'code' => $e->getCode(),
+                'message' => $e->getMessage(),
+            ];
+        }
+        return $result;
     }
 
+    /**
+     * @param HandlerEntity $handlerEntity
+     * @param array $params
+     * @return mixed
+     * @throws NotFoundException
+     * @throws UnprocessibleEntityException
+     */
     private function runProcedure(HandlerEntity $handlerEntity, array $params)
     {
         $serviceInstance = $this->container->get($handlerEntity->getServiceClass());
+        if( ! method_exists($serviceInstance, $handlerEntity->getMethod())) {
+            throw new NotFoundException('Not found method');
+        }
+        $errorCollection = ValidationHelper::validate($handlerEntity->getParameters(), (object) $params);
+        if ($errorCollection->count() > 0) {
+            $exception = new UnprocessibleEntityException;
+            $exception->setErrorCollection($errorCollection);
+            throw $exception;
+        }
         return $this->container->call([$serviceInstance, $handlerEntity->getMethod()], $params);
     }
 }

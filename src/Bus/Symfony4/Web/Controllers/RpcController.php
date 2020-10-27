@@ -29,12 +29,8 @@ class RpcController
         $response = new JsonResponse();
         $data = json_decode($_POST['data'], JSON_OBJECT_AS_ARRAY);
         $procedureName = $data['method'];
-        $params = ArrayHelper::getValue($data, 'params', []);
-        $result = $this->procedureService->run($procedureName, $params);
-        /*$response->setData([
-            'request' => $data,
-            'response' => $result,
-        ]);*/
+        $parameters = ArrayHelper::getValue($data, 'parameters', []);
+        $result = $this->procedureService->run($procedureName, $parameters);
         $response->setData($result);
         return $response;
     }
