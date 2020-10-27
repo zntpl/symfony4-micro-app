@@ -10,10 +10,16 @@ use ZnCore\Domain\Helpers\EntityHelper;
 class ProcedureConfigRepository
 {
 
+    private $busConfig = [];
+
+    public function __construct(array $busConfig)
+    {
+        $this->busConfig = $busConfig;
+    }
+
     public function getHandlerByName(string $name): HandlerEntity
     {
-        $procedureMap = include __DIR__ . '/../../../../../config/bus.php';
-        $handler = ArrayHelper::getValue($procedureMap, $name);
+        $handler = ArrayHelper::getValue($this->busConfig, $name);
         if (!$handler) {
             throw new NotFoundException('Not found handler');
 //            $handler = ArrayHelper::getValue($procedureMap, 'default');

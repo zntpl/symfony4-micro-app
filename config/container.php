@@ -5,8 +5,8 @@
  */
 
 use App\Bus\Domain\Repositories\Conf\ProcedureConfigRepository;
-use App\Bus\Domain\Repositories\Conf\ServerRepository;
 
-$container->bind(ServerRepository::class, function () {
-    return new ServerRepository($_ENV['HOST_CONF_DIR'], new ProcedureConfigRepository());
+$container->bind(ProcedureConfigRepository::class, function () {
+    $config = include __DIR__ . '/bus.php';
+    return new ProcedureConfigRepository($config);
 }, true);

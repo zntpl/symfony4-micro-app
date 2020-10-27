@@ -1,6 +1,6 @@
 <?php
 
-namespace common\Bootstrap;
+namespace App\Bootstrap;
 
 use ZnCore\Base\Helpers\ComposerHelper;
 
