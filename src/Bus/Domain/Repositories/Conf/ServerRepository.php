@@ -19,7 +19,7 @@ class ServerRepository
     private $directory;
     private $hostsRepository;
 
-    public function __construct(string $directory, HostsRepository $hostsRepository)
+    public function __construct(string $directory, ProcedureConfigRepository $hostsRepository)
     {
         $this->directory = $directory;
         $this->hostsRepository = $hostsRepository;

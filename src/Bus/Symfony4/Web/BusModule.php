@@ -6,7 +6,7 @@ use App\Bus\Symfony4\Web\Controllers\DefaultController;
 use Illuminate\Container\Container;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
-use App\Bus\Domain\Repositories\Conf\HostsRepository;
+use App\Bus\Domain\Repositories\Conf\ProcedureConfigRepository;
 use App\Bus\Domain\Repositories\Conf\ServerRepository;
 use App\Bus\Symfony4\Web\Controllers\RpcController;
 use ZnLib\Web\Symfony4\MicroApp\BaseModule;

@@ -2,8 +2,10 @@
 
 namespace App\Bus\Domain\Services;
 
+use App\Bus\Domain\Entities\HandlerEntity;
 use Illuminate\Container\Container;
 use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
+use ZnCore\Domain\Helpers\EntityHelper;
 
 class ProcedureService
 {
@@ -22,12 +24,12 @@ class ProcedureService
         return $this->runProcedure($handler, $params);
     }
 
-    private function runProcedure(array $handler, array $params) {
-        $serviceInstance = $this->container->get($handler['serviceClass']);
-        return $this->container->call([$serviceInstance, $handler['method']], $params);
+    private function runProcedure(HandlerEntity $handlerEntity, array $params) {
+        $serviceInstance = $this->container->get($handlerEntity->getServiceClass());
+        return $this->container->call([$serviceInstance, $handlerEntity->getMethod()], $params);
     }
 
-    private function getHandler(string $name): array {
+    private function getHandler(string $name): HandlerEntity {
         $procedureMap = [
             'testMethod' => [
                 'serviceClass' => TestService::class,
@@ -38,6 +40,6 @@ class ProcedureService
         if( ! $handler) {
             $handler = ArrayHelper::getValue($procedureMap, 'default');
         }
-        return $handler;
+        return EntityHelper::createEntity(HandlerEntity::class, $handler);
     }
 }
