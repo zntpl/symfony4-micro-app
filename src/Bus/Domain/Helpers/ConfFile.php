@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Rpc\Domain\Helpers;
+namespace App\Bus\Domain\Helpers;
 
 class ConfFile {
 

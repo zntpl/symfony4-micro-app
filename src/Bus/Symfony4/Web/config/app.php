@@ -2,7 +2,7 @@
 
 use Illuminate\Container\Container;
 use ZnCore\Base\Libs\DotEnv\DotEnv;
-use App\Rpc\Symfony4\Web\RpcModule;
+use App\Bus\Symfony4\Web\RpcModule;
 use ZnLib\Web\Symfony4\MicroApp\MicroApp;
 
 $rootDir = realpath(__DIR__ . '/../../../../..');

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Rpc\Domain;
+namespace App\Bus\Domain;
 
 use ZnCore\Domain\Interfaces\DomainInterface;
 
@@ -9,7 +9,6 @@ class Domain implements DomainInterface
 
     public function getName()
     {
-        return 'apache';
+        return 'bus';
     }
-
 }

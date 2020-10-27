@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Rpc\Domain\Entities;
+namespace App\Bus\Domain\Entities;
 
 class HostEntity {
 

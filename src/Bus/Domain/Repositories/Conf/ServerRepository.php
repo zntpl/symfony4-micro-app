@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Rpc\Domain\Repositories\Conf;
+namespace App\Bus\Domain\Repositories\Conf;
 
 use Illuminate\Support\Collection;
 use ZnCore\Base\Exceptions\NotFoundException;
@@ -10,8 +10,8 @@ use ZnCore\Domain\Helpers\EntityHelper;
 use ZnCore\Domain\Libs\Query;
 use ZnCrypt\Base\Domain\Enums\HashAlgoEnum;
 use ZnLib\Db\Base\BaseEloquentCrudRepository;
-use App\Rpc\Domain\Entities\ServerEntity;
-use App\Rpc\Domain\Helpers\ConfParser;
+use App\Bus\Domain\Entities\ServerEntity;
+use App\Bus\Domain\Helpers\ConfParser;
 
 class ServerRepository
 {

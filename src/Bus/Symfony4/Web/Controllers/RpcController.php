@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Rpc\Symfony4\Web\Controllers;
+namespace App\Bus\Symfony4\Web\Controllers;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use App\Rpc\Domain\Services\ServerService;
+use App\Bus\Domain\Services\ServerService;
 
 class RpcController
 {
@@ -27,5 +27,4 @@ class RpcController
         ]);
         return $response;
     }
-
 }

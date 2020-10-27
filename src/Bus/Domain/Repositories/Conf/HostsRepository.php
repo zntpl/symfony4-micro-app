@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Rpc\Domain\Repositories\Conf;
+namespace App\Bus\Domain\Repositories\Conf;
 
 use Illuminate\Support\Collection;
 use ZnCore\Base\Exceptions\NotFoundException;
 use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
 use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
 use ZnCore\Domain\Helpers\EntityHelper;
-use App\Rpc\Domain\Entities\HostEntity;
-use App\Rpc\Domain\Entities\HostGroupEntity;
-use App\Rpc\Domain\Entities\ServerEntity;
-use App\Rpc\Domain\Helpers\ConfParser;
-use App\Rpc\Domain\Helpers\HostsParser;
+use App\Bus\Domain\Entities\HostEntity;
+use App\Bus\Domain\Entities\HostGroupEntity;
+use App\Bus\Domain\Entities\ServerEntity;
+use App\Bus\Domain\Helpers\ConfParser;
+use App\Bus\Domain\Helpers\HostsParser;
 
 class HostsRepository
 {
