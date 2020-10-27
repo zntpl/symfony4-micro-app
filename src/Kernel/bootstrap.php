@@ -4,9 +4,7 @@ use Illuminate\Container\Container;
 use ZnCore\Base\Libs\DotEnv\DotEnv;
 use ZnLib\Web\Symfony4\MicroApp\MicroApp;
 
-$rootDir = realpath(__DIR__ . '/../../../symfony4-micro-app');
-require_once $rootDir . '/' . $_ENV['AUTOLOAD_SCRIPT'];
-DotEnv::init($rootDir);
+DotEnv::init();
 
 $container = Container::getInstance();
 

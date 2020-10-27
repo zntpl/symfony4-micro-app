@@ -1,5 +1,4 @@
 <?php
 
-$_ENV['AUTOLOAD_SCRIPT'] = 'src/Bootstrap/autoload.php';
-
-include (__DIR__ . '/../src/Kernel/app.php');
+require_once __DIR__ . '/../src/Bootstrap/autoload.php';
+require_once __DIR__ . '/../src/Kernel/bootstrap.php';
