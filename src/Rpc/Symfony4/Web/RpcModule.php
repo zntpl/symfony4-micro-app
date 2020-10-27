@@ -10,7 +10,7 @@ use App\Rpc\Domain\Repositories\Conf\ServerRepository;
 use App\Rpc\Symfony4\Web\Controllers\ServerController;
 use ZnLib\Web\Symfony4\MicroApp\BaseModule;
 
-class ApacheModule extends BaseModule
+class RpcModule extends BaseModule
 {
 
     public function configContainer(Container $container)

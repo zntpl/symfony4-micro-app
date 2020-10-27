@@ -8,41 +8,14 @@
         "php": ">=7.2",
         "ext-intl": "*",
         "ext-json": "*",
-        "illuminate/database": "^6.3",
-        "yiisoft/yii2": "~2.0.14",
-        "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
-        "znbundle/article": "dev-master",
-        "znbundle/dashboard": "dev-master",
-        "znbundle/language": "dev-master",
-        "znbundle/messenger": "dev-master",
-        "znbundle/notify": "dev-master",
-        "znbundle/queue": "dev-master",
-        "znbundle/rbac": "dev-master",
-        "znbundle/reference": "dev-master",
-        "znbundle/storage": "dev-master",
-        "znbundle/user": "dev-master",
         "zncore/domain": "dev-master",
         "zncrypt/jwt": "dev-master",
-        "zncrypt/pki": "dev-master",
-        "zncrypt/tunnel": "dev-master",
-        "znlib/console": "dev-master",
         "znlib/db": "dev-master",
         "znlib/fixture": "dev-master",
-        "znlib/init": "dev-master",
         "znlib/migration": "dev-master",
-        "znlib/rest": "dev-master",
-        "znlib/socket": "dev-master",
-        "znlib/web": "dev-master",
-        "znsandbox/sandbox": "dev-master",
-        "znyii/app": "dev-master",
-        "znyii/base": "dev-master",
-        "znyii/error": "dev-master"
+        "znlib/web": "dev-master"
     },
     "require-dev": {
-        "yiisoft/yii2-debug": "~2.1.0",
-        "yiisoft/yii2-gii": "~2.1.0",
-        "yiisoft/yii2-faker": "~2.0.0",
         "zntool/dev": "dev-master",
         "zntool/rest-client": "dev-master",
         "zntool/test": "dev-master",
@@ -55,7 +28,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Packages\\": "Packages"
+            "App\\": "src"
         }
     },
     "autoload-dev": {
