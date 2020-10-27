@@ -7,6 +7,7 @@ use Illuminate\Container\Container;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
 
 class RpcController
@@ -27,6 +28,7 @@ class RpcController
     public function callProcedure(Request $request): Response
     {
         $response = new JsonResponse();
+//        $response->headers->set(HttpHeaderEnum::CONTENT_TYPE, 'application/json');
         $data = json_decode($_POST['data'], JSON_OBJECT_AS_ARRAY);
         $procedureName = $data['method'];
         $parameters = ArrayHelper::getValue($data, 'parameters', []);

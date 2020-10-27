@@ -34,7 +34,8 @@ class ProcedureService
             $result = [
                 'error' => 'UnprocessibleEntityException',
                 'code' => $e->getCode(),
-                'message' => ValidationHelper::collectionToArray($e->getErrorCollection()),
+                'message' => 'Parameters not valid',
+                'errorCollection' => ValidationHelper::collectionToArray($e->getErrorCollection()),
             ];
         } catch (Exception $e) {
             $result = [
