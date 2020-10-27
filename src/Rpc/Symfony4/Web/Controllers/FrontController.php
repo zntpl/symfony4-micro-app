@@ -7,10 +7,10 @@ use Symfony\Component\HttpFoundation\Response;
 use ZnLib\Web\Symfony4\MicroApp\BaseWebController;
 use App\Rpc\Domain\Services\ServerService;
 
-class ServerController extends BaseWebController
+class FrontController extends BaseWebController
 {
 
-    protected $viewsDir = __DIR__ . '/../views/server';
+    protected $viewsDir = __DIR__ . '/../views/front';
 
     private $serverService;
 
@@ -23,17 +23,18 @@ class ServerController extends BaseWebController
 
     public function index(Request $request): Response
     {
-        $links = $this->serverService->all();
+        //$links = $this->serverService->all();
         return $this->renderTemplate('index', [
-            'links' => $links,
+            //'links' => $links,
         ]);
     }
 
-    public function view(Request $request, string $name): Response
+    public function view(Request $request): Response
     {
-        $entity = $this->serverService->oneByName($name);
+        dd('Hello world!!!');
+        //$entity = $this->serverService->oneByName($name);
         return $this->renderTemplate('view', [
-            'entity' => $entity,
+            //'entity' => $entity,
         ]);
     }
 
