@@ -2,7 +2,6 @@
 
 use Illuminate\Container\Container;
 use ZnCore\Base\Libs\DotEnv\DotEnv;
-use App\Bus\Symfony4\Web\BusModule;
 use ZnLib\Web\Symfony4\MicroApp\MicroApp;
 
 $rootDir = realpath(__DIR__ . '/../../../symfony4-micro-app');
@@ -15,6 +14,11 @@ include __DIR__ . '/../../config/container.php';
 
 $app = new MicroApp($container);
 $app->setErrorLevel(E_ALL);
-$app->addModule(new BusModule());
+
+$modulesConfig = include (__DIR__ . '/../../config/modules.php');
+foreach ($modulesConfig as $moduleClass) {
+    $moduleInstance = $container->get($moduleClass);
+    $app->addModule($moduleInstance);
+}
 $response = $app->run();
 $response->send();
