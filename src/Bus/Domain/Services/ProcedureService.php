@@ -8,6 +8,7 @@ use Illuminate\Container\Container;
 use ZnCore\Base\Exceptions\NotFoundException;
 use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Helpers\ValidationHelper;
+use Exception;
 
 class ProcedureService
 {
@@ -35,7 +36,7 @@ class ProcedureService
                 'code' => $e->getCode(),
                 'message' => ValidationHelper::collectionToArray($e->getErrorCollection()),
             ];
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $result = [
                 'error' => basename(get_class($e)),
                 'code' => $e->getCode(),
@@ -58,12 +59,21 @@ class ProcedureService
         if( ! method_exists($serviceInstance, $handlerEntity->getMethod())) {
             throw new NotFoundException('Not found method');
         }
+        $this->validateParameters($handlerEntity, $params);
+        return $this->container->call([$serviceInstance, $handlerEntity->getMethod()], $params);
+    }
+
+    /**
+     * @param HandlerEntity $handlerEntity
+     * @param array $params
+     * @throws UnprocessibleEntityException
+     */
+    private function validateParameters(HandlerEntity $handlerEntity, array $params) {
         $errorCollection = ValidationHelper::validate($handlerEntity->getParameters(), (object) $params);
         if ($errorCollection->count() > 0) {
             $exception = new UnprocessibleEntityException;
             $exception->setErrorCollection($errorCollection);
             throw $exception;
         }
-        return $this->container->call([$serviceInstance, $handlerEntity->getMethod()], $params);
     }
 }
