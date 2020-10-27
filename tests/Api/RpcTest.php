@@ -12,7 +12,6 @@ class RpcTest extends BaseRestApiTest
 
     public function testExample()
     {
-        $this->assertEquals(1, 1);
         $response = $this->getRestClient()->sendPost('/json-rpc', [
             'data' => '{"method":"testMethod","parameters":{"id":"111"}}',
         ]);
@@ -27,7 +26,6 @@ class RpcTest extends BaseRestApiTest
 
     public function testNotFoundMethod()
     {
-        $this->assertEquals(1, 1);
         $response = $this->getRestClient()->sendPost('/json-rpc', [
             'data' => '{"method":"testMethod11111111111","parameters":{"id":"111"}}',
         ]);
@@ -43,7 +41,6 @@ class RpcTest extends BaseRestApiTest
 
     public function testBadParameters()
     {
-        $this->assertEquals(1, 1);
         $response = $this->getRestClient()->sendPost('/json-rpc', [
             'data' => '{"method":"testMethod","parameters":{"id":"qqqqqq"}}',
         ]);
