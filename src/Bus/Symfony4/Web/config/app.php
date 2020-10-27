@@ -2,7 +2,7 @@
 
 use Illuminate\Container\Container;
 use ZnCore\Base\Libs\DotEnv\DotEnv;
-use App\Bus\Symfony4\Web\RpcModule;
+use App\Bus\Symfony4\Web\BusModule;
 use ZnLib\Web\Symfony4\MicroApp\MicroApp;
 
 $rootDir = realpath(__DIR__ . '/../../../../..');
@@ -11,8 +11,10 @@ DotEnv::init($rootDir);
 
 $container = Container::getInstance();
 
+include __DIR__ . '/../../../../../config/container.php';
+
 $app = new MicroApp($container);
 $app->setErrorLevel(E_ALL);
-$app->addModule(new RpcModule());
+$app->addModule(new BusModule());
 $response = $app->run();
 $response->send();
