@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a362dc9bae4a176af5b24c2d0694f5b",
+    "content-hash": "0713eeed6dd1fac387f67aa631ef207c",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -2359,6 +2359,39 @@
             "time": "2020-10-16T10:38:16+00:00"
         },
         {
+            "name": "znlib/init",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/znlib/init.git",
+                "reference": "07fd0f527b89528a12df9ffb691efbf55ab4a311"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/znlib/init/zipball/07fd0f527b89528a12df9ffb691efbf55ab4a311",
+                "reference": "07fd0f527b89528a12df9ffb691efbf55ab4a311",
+                "shasum": ""
+            },
+            "type": "extension",
+            "autoload": {
+                "psr-4": {
+                    "ZnLib\\Init\\": "src",
+                    "ZnLib\\Init\\Tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yamshikov Vitaliy",
+                    "email": "theyamshikov@yandex.ru"
+                }
+            ],
+            "time": "2020-09-30T10:23:45+00:00"
+        },
+        {
             "name": "znlib/migration",
             "version": "dev-master",
             "source": {
@@ -2390,6 +2423,43 @@
                 }
             ],
             "time": "2020-10-16T10:38:21+00:00"
+        },
+        {
+            "name": "znlib/rest",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/znlib/rest.git",
+                "reference": "61f411cfdaaee2d67808383707397ba971557992"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/znlib/rest/zipball/61f411cfdaaee2d67808383707397ba971557992",
+                "reference": "61f411cfdaaee2d67808383707397ba971557992",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": ">5.3",
+                "symfony/serializer": "4.*|5.*"
+            },
+            "type": "extension",
+            "autoload": {
+                "psr-4": {
+                    "ZnLib\\Rest\\": "src",
+                    "ZnLib\\Rest\\Tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yamshikov Vitaliy",
+                    "email": "theyamshikov@yandex.ru"
+                }
+            ],
+            "time": "2020-09-30T05:13:01+00:00"
         },
         {
             "name": "znlib/web",
@@ -6265,7 +6335,9 @@
         "znlib/console": 20,
         "znlib/db": 20,
         "znlib/fixture": 20,
+        "znlib/init": 20,
         "znlib/migration": 20,
+        "znlib/rest": 20,
         "znlib/web": 20,
         "zntool/dev": 20,
         "zntool/rest-client": 20,

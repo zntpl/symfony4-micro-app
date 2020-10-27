@@ -13,7 +13,9 @@
         "znlib/console": "dev-master",
         "znlib/db": "dev-master",
         "znlib/fixture": "dev-master",
+        "znlib/init": "dev-master",
         "znlib/migration": "dev-master",
+        "znlib/rest": "dev-master",
         "znlib/web": "dev-master"
     },
     "require-dev": {
